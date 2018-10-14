@@ -16,6 +16,7 @@ static NSString * const kDefaultOnboardingFont = @"Helvetica-Light";
 
 static CGFloat const kContentWidthMultiplier = 0.9;
 static CGFloat const kDefaultImageViewSize = 100;
+static CGFloat const kDefaultAnimationViewSize = 175;
 static CGFloat const kDefaultTopPadding = 60;
 static CGFloat const kDefaultUnderIconPadding = 30;
 static CGFloat const kDefaultUnderTitlePadding = 30;
@@ -54,6 +55,20 @@ NSString * const kOnboardActionButtonAccessibilityIdentifier = @"OnboardActionBu
     return [[self alloc] initWithTitle:title body:body image:image buttonText:buttonText action:action];
 }
 
++ (instancetype)contentWithTitle:(NSString *)title body:(NSString *)body animation:(NSString *)animation buttonText:(NSString *)buttonText action:(dispatch_block_t)action
+{
+  return [[self alloc] initWithTitle:title body:body animation:animation buttonText:buttonText action:action];
+}
+
+- (instancetype)initWithTitle:(NSString *)title body:(NSString *)body animation:(NSString *)animation buttonText:(NSString *)buttonText action:(dispatch_block_t)action
+{
+  return [self initWithTitle:title body:body image:nil videoURL:nil animation:animation buttonText:buttonText actionBlock:^(OnboardingViewController *onboardController) {
+    if (action) {
+      action();
+    }
+  }];
+}
+
 - (instancetype)initWithTitle:(NSString *)title body:(NSString *)body image:(UIImage *)image buttonText:(NSString *)buttonText action:(dispatch_block_t)action {
     return [self initWithTitle:title body:body image:image buttonText:buttonText actionBlock:^(OnboardingViewController *onboardController) {
         if (action) {
@@ -86,11 +101,24 @@ NSString * const kOnboardActionButtonAccessibilityIdentifier = @"OnboardActionBu
     return [self initWithTitle:title body:body image:image videoURL:nil buttonText:buttonText actionBlock:actionBlock];
 }
 
-- (instancetype)initWithTitle:(NSString *)title body:(NSString *)body image:(UIImage *)image videoURL:(NSURL *)videoURL buttonText:(NSString *)buttonText actionBlock:(action_callback)actionBlock {
+- (instancetype)initWithTitle:(NSString *)title body:(NSString *)body image:(UIImage *)image videoURL:(NSURL *)videoURL buttonText:(NSString *)buttonText actionBlock:(action_callback)actionBlock
+{
+  return [self initWithTitle:title body:body image:image videoURL:videoURL animation:nil buttonText:buttonText actionBlock:actionBlock];
+}
+
+- (instancetype)initWithTitle:(NSString *)title body:(NSString *)body image:(UIImage *)image videoURL:(NSURL *)videoURL animation:(NSString *)animation buttonText:(NSString *)buttonText actionBlock:(action_callback)actionBlock {
     self = [super init];
 
     if (self == nil) {
         return nil;
+    }
+  
+    // Lottie animation view
+    if (animation != nil) {
+        self.animationView = [LOTAnimationView animationNamed:animation inBundle:[NSBundle mainBundle]];
+        self.animationView.contentMode = UIViewContentModeScaleAspectFill;
+        self.animationView.frame = CGRectMake(0, 0, kDefaultAnimationViewSize, kDefaultAnimationViewSize);
+        self.animationView.loopAnimation = YES;
     }
 
     // Icon image view
@@ -168,8 +196,15 @@ NSString * const kOnboardActionButtonAccessibilityIdentifier = @"OnboardActionBu
 
         [self.view addSubview:self.moviePlayerController.view];
     }
+  
+    if (self.iconImageView) {
+        [self.view addSubview:self.iconImageView];
+    }
 
-    [self.view addSubview:self.iconImageView];
+    if (self.animationView) {
+        [self.view addSubview:self.animationView];
+    }
+  
     [self.view addSubview:self.titleLabel];
     [self.view addSubview:self.bodyLabel];
     [self.view addSubview:self.actionButton];
@@ -187,6 +222,11 @@ NSString * const kOnboardActionButtonAccessibilityIdentifier = @"OnboardActionBu
     // If we have a video URL, start playing
     if (self.videoURL) {
         [self.player play];
+    }
+  
+    // If we have an animation view, start playing
+    if (self.animationView) {
+        [self.animationView play];
     }
     
     // Call our view will appear block
@@ -274,10 +314,13 @@ NSString * const kOnboardActionButtonAccessibilityIdentifier = @"OnboardActionBu
     CGFloat viewWidth = CGRectGetWidth(self.view.frame);
     CGFloat contentWidth = viewWidth * kContentWidthMultiplier;
     CGFloat xPadding = (viewWidth - contentWidth) / 2.0;
+  
+    CGRect iconFrame = self.animationView != nil ? self.animationView.frame : self.iconImageView.frame;
 
     [self.iconImageView setFrame:CGRectMake((viewWidth / 2.0) - (self.iconWidth / 2.0), self.topPadding, self.iconWidth, self.iconHeight)];
+    [self.animationView setFrame:CGRectMake((viewWidth / 2.0) - (self.iconWidth / 2.0), self.topPadding, self.iconWidth, self.iconHeight)];
 
-    CGFloat titleYOrigin = CGRectGetMaxY(self.iconImageView.frame) + self.underIconPadding;
+    CGFloat titleYOrigin = CGRectGetMaxY(iconFrame) + self.underIconPadding;
 
     self.titleLabel.frame = CGRectMake(xPadding, titleYOrigin, contentWidth, 0);
     [self.titleLabel sizeToFit];
@@ -297,6 +340,7 @@ NSString * const kOnboardActionButtonAccessibilityIdentifier = @"OnboardActionBu
 
 - (void)updateAlphas:(CGFloat)newAlpha {
     self.iconImageView.alpha = newAlpha;
+    self.animationView.alpha = newAlpha;
     self.titleLabel.alpha = newAlpha;
     self.bodyLabel.alpha = newAlpha;
     self.actionButton.alpha = newAlpha;

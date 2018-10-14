@@ -23,7 +23,6 @@
 		273D50B919A1A34F00E38DB2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 273D50B719A1A34F00E38DB2 /* InfoPlist.strings */; };
 		273D50BB19A1A34F00E38DB2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 273D50BA19A1A34F00E38DB2 /* main.m */; };
 		273D50BF19A1A34F00E38DB2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 273D50BE19A1A34F00E38DB2 /* AppDelegate.m */; };
-		273D50C819A1A34F00E38DB2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 273D50C719A1A34F00E38DB2 /* XCTest.framework */; };
 		273D50C919A1A34F00E38DB2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 273D50AE19A1A34F00E38DB2 /* Foundation.framework */; };
 		273D50CA19A1A34F00E38DB2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 273D50B219A1A34F00E38DB2 /* UIKit.framework */; };
 		273D50D219A1A34F00E38DB2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 273D50D019A1A34F00E38DB2 /* InfoPlist.strings */; };
@@ -45,6 +44,11 @@
 		27B4BCED19BB5F6E0066EC81 /* purple.png in Resources */ = {isa = PBXBuildFile; fileRef = 27B4BCEC19BB5F6E0066EC81 /* purple.png */; };
 		27B4BCEF19BB60660066EC81 /* coffee.png in Resources */ = {isa = PBXBuildFile; fileRef = 27B4BCEE19BB60660066EC81 /* coffee.png */; };
 		27B4BCF119BB657F0066EC81 /* charcoal.png in Resources */ = {isa = PBXBuildFile; fileRef = 27B4BCF019BB657F0066EC81 /* charcoal.png */; };
+		3AB58E472173825B00BF29F6 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB58E45217381F500BF29F6 /* Lottie.framework */; };
+		3AB58E492173864F00BF29F6 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB58E45217381F500BF29F6 /* Lottie.framework */; };
+		3AB58E4A2173864F00BF29F6 /* Lottie.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB58E45217381F500BF29F6 /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3AB58E4D2173889F00BF29F6 /* deep_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 3AB58E4C2173889F00BF29F6 /* deep_loading.json */; };
+		3AB58E4F21738D7500BF29F6 /* progress_bar_tick.json in Resources */ = {isa = PBXBuildFile; fileRef = 3AB58E4E21738D7500BF29F6 /* progress_bar_tick.json */; };
 		5BFFBBB21BF847670083BEC3 /* video1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5BFFBBAF1BF847670083BEC3 /* video1.mp4 */; };
 		5BFFBBB31BF847670083BEC3 /* video2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5BFFBBB01BF847670083BEC3 /* video2.mp4 */; };
 		5BFFBBB41BF847670083BEC3 /* video3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5BFFBBB11BF847670083BEC3 /* video3.mp4 */; };
@@ -59,6 +63,20 @@
 			remoteInfo = Onboard;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3AB58E4B2173865000BF29F6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3AB58E4A2173864F00BF29F6 /* Lottie.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0F0321571CA3AD81007FD86A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../../Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -81,8 +99,6 @@
 		273D50BC19A1A34F00E38DB2 /* Onboard-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Onboard-Prefix.pch"; sourceTree = "<group>"; };
 		273D50BD19A1A34F00E38DB2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		273D50BE19A1A34F00E38DB2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		273D50C619A1A34F00E38DB2 /* OnboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		273D50C719A1A34F00E38DB2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		273D50CF19A1A34F00E38DB2 /* OnboardTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OnboardTests-Info.plist"; sourceTree = "<group>"; };
 		273D50D119A1A34F00E38DB2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		273D50D319A1A34F00E38DB2 /* OnboardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnboardTests.m; sourceTree = "<group>"; };
@@ -106,6 +122,10 @@
 		27B4BCEC19BB5F6E0066EC81 /* purple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purple.png; sourceTree = "<group>"; };
 		27B4BCEE19BB60660066EC81 /* coffee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coffee.png; sourceTree = "<group>"; };
 		27B4BCF019BB657F0066EC81 /* charcoal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = charcoal.png; sourceTree = "<group>"; };
+		3AB58E45217381F500BF29F6 /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
+		3AB58E482173825B00BF29F6 /* OnboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AB58E4C2173889F00BF29F6 /* deep_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = deep_loading.json; sourceTree = "<group>"; };
+		3AB58E4E21738D7500BF29F6 /* progress_bar_tick.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = progress_bar_tick.json; sourceTree = "<group>"; };
 		5BFFBBAF1BF847670083BEC3 /* video1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video1.mp4; sourceTree = "<group>"; };
 		5BFFBBB01BF847670083BEC3 /* video2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video2.mp4; sourceTree = "<group>"; };
 		5BFFBBB11BF847670083BEC3 /* video3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video3.mp4; sourceTree = "<group>"; };
@@ -118,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				273D50B119A1A34F00E38DB2 /* CoreGraphics.framework in Frameworks */,
+				3AB58E492173864F00BF29F6 /* Lottie.framework in Frameworks */,
 				273D50B319A1A34F00E38DB2 /* UIKit.framework in Frameworks */,
 				273D50AF19A1A34F00E38DB2 /* Foundation.framework in Frameworks */,
 			);
@@ -127,9 +148,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				273D50C819A1A34F00E38DB2 /* XCTest.framework in Frameworks */,
 				273D50CA19A1A34F00E38DB2 /* UIKit.framework in Frameworks */,
 				273D50C919A1A34F00E38DB2 /* Foundation.framework in Frameworks */,
+				3AB58E472173825B00BF29F6 /* Lottie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +160,7 @@
 		270CB0B419BABF8C00F051B3 /* media */ = {
 			isa = PBXGroup;
 			children = (
+				3AB58E4C2173889F00BF29F6 /* deep_loading.json */,
 				5BFFBBAF1BF847670083BEC3 /* video1.mp4 */,
 				5BFFBBB01BF847670083BEC3 /* video2.mp4 */,
 				5BFFBBB11BF847670083BEC3 /* video3.mp4 */,
@@ -146,6 +168,7 @@
 				27009D001A059F6B00CFA5B5 /* sf-outer-limits.upright.ttf */,
 				27009D021A05A09E00CFA5B5 /* nasalization rg.ttf */,
 				27009CFE1A05991300CFA5B5 /* sun.mp4 */,
+				3AB58E4E21738D7500BF29F6 /* progress_bar_tick.json */,
 				27535AD119BBD1F00017811B /* yellowbg.png */,
 				27535ACF19BBCA070017811B /* tree.png */,
 				27B4BCF019BB657F0066EC81 /* charcoal.png */,
@@ -174,6 +197,7 @@
 			children = (
 				273D50B419A1A34F00E38DB2 /* Source */,
 				275280F219A45909007FBD47 /* Demo Files */,
+				3AB58E44217381F500BF29F6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -181,7 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				273D50AB19A1A34F00E38DB2 /* Onboard.app */,
-				273D50C619A1A34F00E38DB2 /* OnboardTests.xctest */,
+				3AB58E482173825B00BF29F6 /* OnboardTests.xctest */,
 			);
 			path = Products;
 			sourceTree = "<group>";
@@ -192,7 +216,6 @@
 				273D50AE19A1A34F00E38DB2 /* Foundation.framework */,
 				273D50B019A1A34F00E38DB2 /* CoreGraphics.framework */,
 				273D50B219A1A34F00E38DB2 /* UIKit.framework */,
-				273D50C719A1A34F00E38DB2 /* XCTest.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -264,6 +287,14 @@
 			path = "Demo Files";
 			sourceTree = "<group>";
 		};
+		3AB58E44217381F500BF29F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3AB58E45217381F500BF29F6 /* Lottie.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -274,6 +305,7 @@
 				273D50A719A1A34F00E38DB2 /* Sources */,
 				273D50A819A1A34F00E38DB2 /* Frameworks */,
 				273D50A919A1A34F00E38DB2 /* Resources */,
+				3AB58E4B2173865000BF29F6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -299,7 +331,7 @@
 			);
 			name = OnboardTests;
 			productName = OnboardTests;
-			productReference = 273D50C619A1A34F00E38DB2 /* OnboardTests.xctest */;
+			productReference = 3AB58E482173825B00BF29F6 /* OnboardTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -348,11 +380,13 @@
 				5BFFBBB31BF847670083BEC3 /* video2.mp4 in Resources */,
 				27B4BCF119BB657F0066EC81 /* charcoal.png in Resources */,
 				27535AD219BBD1F00017811B /* yellowbg.png in Resources */,
+				3AB58E4D2173889F00BF29F6 /* deep_loading.json in Resources */,
 				27009D051A05A24800CFA5B5 /* space age.ttf in Resources */,
 				273D50B919A1A34F00E38DB2 /* InfoPlist.strings in Resources */,
 				27B4BCEA19BB5D9B0066EC81 /* shark.png in Resources */,
 				2789AD7019A2DE53002117FE /* yellow.png in Resources */,
 				27009CFF1A05991300CFA5B5 /* sun.mp4 in Resources */,
+				3AB58E4F21738D7500BF29F6 /* progress_bar_tick.json in Resources */,
 				270CB0C319BAC93700F051B3 /* space1.png in Resources */,
 				27009D011A059F6B00CFA5B5 /* sf-outer-limits.upright.ttf in Resources */,
 				27535AD019BBCA070017811B /* tree.png in Resources */,
@@ -509,9 +543,14 @@
 		273D50D819A1A34F00E38DB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Demo Files/Supporting Files/Onboard-Prefix.pch";
 				INFOPLIST_FILE = "Demo Files/Supporting Files/Onboard-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.MikeAmaral.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -521,9 +560,14 @@
 		273D50D919A1A34F00E38DB2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Demo Files/Supporting Files/Onboard-Prefix.pch";
 				INFOPLIST_FILE = "Demo Files/Supporting Files/Onboard-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.MikeAmaral.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -538,6 +582,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Demo Files/Supporting Files/Onboard-Prefix.pch";
@@ -561,6 +606,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Demo Files/Supporting Files/Onboard-Prefix.pch";

@@ -67,23 +67,55 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
 }
 
 - (OnboardingViewController *)generateStandardOnboardingVC {
-    OnboardingContentViewController *firstPage = [OnboardingContentViewController contentWithTitle:@"What A Beautiful Photo" body:@"This city background image is so beautiful." image:[UIImage imageNamed:@"blue"] buttonText:@"Enable Location Services" action:^{
-        [[[UIAlertView alloc] initWithTitle:nil message:@"Here you can prompt users for various application permissions, providing them useful information about why you'd like those permissions to enhance their experience, increasing your chances they will grant those permissions." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    OnboardingContentViewController *firstPage = [OnboardingContentViewController contentWithTitle:@"What A Beautiful Photo"
+                                                                                              body:@"This city background image is so beautiful."
+                                                                                             image:[UIImage imageNamed:@"blue"]
+                                                                                        buttonText:@"Enable Location Services"
+                                                                                            action:^{
+          UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil
+                                                                       message:@"Here you can prompt users for various application permissions, providing them useful information about why you'd like those permissions to enhance their experience, increasing your chances they will grant those permissions."
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
     }];
     
-    OnboardingContentViewController *secondPage = [OnboardingContentViewController contentWithTitle:@"I'm so sorry" body:@"I can't get over the nice blurry background photo." image:[UIImage imageNamed:@"red"] buttonText:@"Connect With Facebook" action:^{
-        [[[UIAlertView alloc] initWithTitle:nil message:@"Prompt users to do other cool things on startup. As you can see, hitting the action button on the prior page brought you automatically to the next page. Cool, huh?" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    OnboardingContentViewController *secondPage = [OnboardingContentViewController contentWithTitle:@"I'm so sorry"
+                                                                                               body:@"I can't get over the nice blurry background photo."
+                                                                                              image:[UIImage imageNamed:@"red"]
+                                                                                         buttonText:@"Connect With Facebook"
+                                                                                             action:^{
+      UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil
+                                                                     message:@"Prompt users to do other cool things on startup. As you can see, hitting the action button on the prior page brought you automatically to the next page. Cool, huh?"
+                                                              preferredStyle:UIAlertControllerStyleAlert];
+      [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+      [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
     }];
     secondPage.movesToNextViewController = YES;
     secondPage.viewDidAppearBlock = ^{
-        [[[UIAlertView alloc] initWithTitle:@"Welcome!" message:@"You've arrived on the second page, and this alert was displayed from within the page's viewDidAppearBlock." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Welcome!"
+                                                                       message:@"You've arrived on the second page, and this alert was displayed from within the page's viewDidAppearBlock."
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
     };
-    
-    OnboardingContentViewController *thirdPage = [OnboardingContentViewController contentWithTitle:@"Seriously Though" body:@"Kudos to the photographer." image:[UIImage imageNamed:@"yellow"] buttonText:@"Get Started" action:^{
+  
+    OnboardingContentViewController *thirdPage = [OnboardingContentViewController contentWithTitle:@"Lottie calling!"
+                                                                                              body:@"How about using Lottie together with Onboard?"
+                                                                                         animation:@"deep_loading"
+                                                                                        buttonText:@"Try out Lottie"
+                                                                                            action:nil];
+    thirdPage.movesToNextViewController = YES;
+
+    OnboardingContentViewController *fourthPage = [OnboardingContentViewController contentWithTitle:@"Seriously Though"
+                                                                                               body:@"Kudos to the photographer."
+                                                                                              image:[UIImage imageNamed:@"yellow"]
+                                                                                         buttonText:@"Get Started"
+                                                                                             action:^{
         [self handleOnboardingCompletion];
     }];
     
-    OnboardingViewController *onboardingVC = [OnboardingViewController onboardWithBackgroundImage:[UIImage imageNamed:@"street"] contents:@[firstPage, secondPage, thirdPage]];
+    OnboardingViewController *onboardingVC = [OnboardingViewController onboardWithBackgroundImage:[UIImage imageNamed:@"street"]
+                                                                                         contents:@[firstPage, secondPage, thirdPage, fourthPage]];
     onboardingVC.shouldFadeTransitions = YES;
     onboardingVC.fadePageControlOnLastPage = YES;
     onboardingVC.fadeSkipButtonOnLastPage = YES;
@@ -99,7 +131,11 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
 }
 
 - (OnboardingViewController *)generateMovieOnboardingVC {
-    OnboardingContentViewController *firstPage = [[OnboardingContentViewController alloc] initWithTitle:@"Everything Under The Sun" body:@"The temperature of the photosphere is over 10,000°F." image:nil buttonText:nil action:nil];
+    OnboardingContentViewController *firstPage = [[OnboardingContentViewController alloc] initWithTitle:@"Everything Under The Sun"
+                                                                                                   body:@"The temperature of the photosphere is over 10,000°F."
+                                                                                                  image:nil
+                                                                                             buttonText:nil
+                                                                                                 action:nil];
     firstPage.topPadding = -15;
     firstPage.underTitlePadding = 160;
     firstPage.titleLabel.textColor = [UIColor colorWithRed:239/255.0 green:88/255.0 blue:35/255.0 alpha:1.0];
@@ -107,7 +143,11 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
     firstPage.bodyLabel.textColor = [UIColor colorWithRed:239/255.0 green:88/255.0 blue:35/255.0 alpha:1.0];
     firstPage.bodyLabel.font = [UIFont fontWithName:@"NasalizationRg-Regular" size:18.0];
     
-    OnboardingContentViewController *secondPage = [[OnboardingContentViewController alloc] initWithTitle:@"Every Second" body:@"600 million tons of protons are converted into helium atoms." image:nil buttonText:nil action:nil];
+    OnboardingContentViewController *secondPage = [[OnboardingContentViewController alloc] initWithTitle:@"Every Second"
+                                                                                                    body:@"600 million tons of protons are converted into helium atoms."
+                                                                                                   image:nil
+                                                                                              buttonText:nil
+                                                                                                  action:nil];
     secondPage.titleLabel.font = [UIFont fontWithName:@"SFOuterLimitsUpright" size:38.0];
     secondPage.underTitlePadding = 170;
     secondPage.topPadding = 0;
@@ -115,7 +155,11 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
     secondPage.bodyLabel.textColor = [UIColor colorWithRed:251/255.0 green:176/255.0 blue:59/255.0 alpha:1.0];
     secondPage.bodyLabel.font = [UIFont fontWithName:@"NasalizationRg-Regular" size:18.0];
     
-    OnboardingContentViewController *thirdPage = [[OnboardingContentViewController alloc] initWithTitle:@"We're All Star Stuff" body:@"Our very bodies consist of the same chemical elements found in the most distant nebulae, and our activities are guided by the same universal rules." image:nil buttonText:@"Explore the universe" action:^{
+    OnboardingContentViewController *thirdPage = [[OnboardingContentViewController alloc] initWithTitle:@"We're All Star Stuff"
+                                                                                                   body:@"Our very bodies consist of the same chemical elements found in the most distant nebulae, and our activities are guided by the same universal rules."
+                                                                                                  image:nil
+                                                                                             buttonText:@"Explore the universe"
+                                                                                                 action:^{
         [self handleOnboardingCompletion];
     }];
     thirdPage.topPadding = 10;
@@ -145,7 +189,11 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
     NSString *moviePath = [bundle pathForResource:@"sun" ofType:@"mp4"];
     NSURL *movieURL = [NSURL fileURLWithPath:moviePath];
 
-    OnboardingContentViewController *firstPage = [OnboardingContentViewController contentWithTitle:@"Everything Under The Sun" body:@"The temperature of the photosphere is over 10,000°F." videoURL:movieURL buttonText:nil action:nil];
+    OnboardingContentViewController *firstPage = [OnboardingContentViewController contentWithTitle:@"Everything Under The Sun"
+                                                                                              body:@"The temperature of the photosphere is over 10,000°F."
+                                                                                          videoURL:movieURL
+                                                                                        buttonText:nil
+                                                                                            action:nil];
     firstPage.topPadding = -15;
     firstPage.underTitlePadding = 160;
     firstPage.titleLabel.textColor = [UIColor colorWithRed:239/255.0 green:88/255.0 blue:35/255.0 alpha:1.0];
@@ -153,7 +201,11 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
     firstPage.bodyLabel.textColor = [UIColor colorWithRed:239/255.0 green:88/255.0 blue:35/255.0 alpha:1.0];
     firstPage.bodyLabel.font = [UIFont fontWithName:@"NasalizationRg-Regular" size:18.0];
 
-    OnboardingContentViewController *secondPage = [OnboardingContentViewController contentWithTitle:@"Every Second" body:@"600 million tons of protons are converted into helium atoms." videoURL:movieURL buttonText:nil action:nil];
+    OnboardingContentViewController *secondPage = [OnboardingContentViewController contentWithTitle:@"Every Second"
+                                                                                               body:@"600 million tons of protons are converted into helium atoms."
+                                                                                           videoURL:movieURL
+                                                                                         buttonText:nil
+                                                                                             action:nil];
     secondPage.titleLabel.font = [UIFont fontWithName:@"SFOuterLimitsUpright" size:38.0];
     secondPage.underTitlePadding = 170;
     secondPage.topPadding = 0;
@@ -161,7 +213,11 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
     secondPage.bodyLabel.textColor = [UIColor colorWithRed:251/255.0 green:176/255.0 blue:59/255.0 alpha:1.0];
     secondPage.bodyLabel.font = [UIFont fontWithName:@"NasalizationRg-Regular" size:18.0];
 
-    OnboardingContentViewController *thirdPage = [OnboardingContentViewController contentWithTitle:@"We're All Star Stuff" body:@"Our very bodies consist of the same chemical elements found in the most distant nebulae, and our activities are guided by the same universal rules." videoURL:movieURL buttonText:nil action:^{
+    OnboardingContentViewController *thirdPage = [OnboardingContentViewController contentWithTitle:@"We're All Star Stuff"
+                                                                                              body:@"Our very bodies consist of the same chemical elements found in the most distant nebulae, and our activities are guided by the same universal rules."
+                                                                                          videoURL:movieURL
+                                                                                        buttonText:nil
+                                                                                            action:^{
         [self handleOnboardingCompletion];
     }];
     thirdPage.topPadding = 10;

@@ -47,3 +47,5 @@ More Samples
 ![demo](Screenshots/purple2.png)
 ![demo](Screenshots/purple3.png)
 ![demo](Screenshots/purple4.png)
+
+<img src="./Screenshots/lottie1.png" width="288" alt="Lottie Example" />

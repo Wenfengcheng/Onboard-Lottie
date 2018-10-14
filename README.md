@@ -1,4 +1,4 @@
-# Onboard
+# Onboard (+ Lottie)
 
 ![Badge w/ Version](https://img.shields.io/cocoapods/v/Onboard.svg)
 [![CocoaPods](https://img.shields.io/cocoapods/dt/Onboard.svg?maxAge=3600)](https://cocoapods.org/pods/Onboard)
@@ -10,13 +10,20 @@
 ![demo](Screenshots/almanac.gif)
 ![demo](Screenshots/solar.gif)
 ![demo](Screenshots/tripnary.gif)
+<img src="./Screenshots/lottie1.png" width="288" alt="Lottie Example" />
 
 # [Click Here For More Examples](examples.md)
 
-Important
-=========
+Note
+=====
 
-Onboard is no longer under active development, and as such if you create any issues or submit pull requests, it's not very likely to be integrated. Thanks to all that helped make Onboard better over the last few years!
+This is a one-afternoon hacked fork of the [official Onboard repository](https://github.com/mamaral/Onboard) to support
+[Lottie animations](https://github.com/airbnb/lottie-ios) by simply extending the current repo by the Lottie project and do
+some additional work.  Swift Example:
+
+```swift
+let lottieContent = 
+```
 
 Usage
 =====
@@ -24,7 +31,7 @@ Usage
 Adding the following to your `Podfile` and running `pod install` should do the trick:
 
 ```
-pod 'Onboard'
+pod 'Onboard-Lottie'
 ```
 
 *If you don't want to use CocoaPods*, you can use Carthage or grab the files located in the *Source* folder and pull them into your project manually.

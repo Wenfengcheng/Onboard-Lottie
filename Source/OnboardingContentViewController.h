@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @import AVKit;
+@import Lottie;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -43,6 +45,12 @@ typedef void (^action_callback)(OnboardingViewController *onboardController);
  * @brief The image view used to show the top icon.
  */
 @property (nonatomic, strong) UIImageView *iconImageView;
+
+
+/**
+ * @brief The animation view used to show the top icon.
+ */
+@property (nonatomic, strong) LOTAnimationView *animationView;
 
 
 /**
@@ -148,6 +156,17 @@ NS_ASSUME_NONNULL_END
  */
 + (nonnull instancetype)contentWithTitle:(nullable NSString *)title body:(nullable NSString *)body image:(nullable UIImage *)image buttonText:(nullable NSString *)buttonText action:(nullable dispatch_block_t)action;
 
+/**
+ * @brief Convenience class initializer for creating an onboarding content view controller using Lottie.
+ * @return An instance of OnboardingViewController with the provided information.
+ */
++ (nonnull instancetype)contentWithTitle:(nullable NSString *)title body:(nullable NSString *)body animation:(nullable NSString *)animation buttonText:(nullable NSString *)buttonText action:(nullable dispatch_block_t)action;
+
+/**
+ * @brief Initializer for creating an onboarding content view controller using Lottie.
+ * @return An instance of OnboardingViewController with the provided information.
+ */
+- (nonnull instancetype)initWithTitle:(nullable NSString *)title body:(nullable NSString *)body animation:(nullable NSString *)animation buttonText:(nullable NSString *)buttonText action:(nullable dispatch_block_t)action;
 
 /**
  * @brief Initializer for creating an onboarding content view controller.
@@ -190,6 +209,11 @@ NS_ASSUME_NONNULL_END
  */
 - (nonnull instancetype)initWithTitle:(nullable NSString *)title body:(nullable NSString *)body image:(nullable UIImage *)image buttonText:(nullable NSString *)buttonText actionBlock:(nullable action_callback)actionBlock;
 
+/**
+ * @brief Initializer for creating an onboarding content view controller with an animation view and an action_callback block.
+ * @return An instance of OnboardingViewController with the provided information.
+ */
+- (instancetype)initWithTitle:(nullable NSString *)title body:(nullable NSString *)body image:(nullable UIImage *)image videoURL:(nullable NSURL *)videoURL animation:(nullable NSString *)animation buttonText:(nullable NSString *)buttonText actionBlock:(nullable action_callback)actionBlock;
 
 /**
  * @brief Initializer for creating an onboarding content view controller with a video and an action_callback block.
