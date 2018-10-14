@@ -19,11 +19,19 @@ Note
 
 This is a one-afternoon hacked fork of the [official Onboard repository](https://github.com/mamaral/Onboard) to support
 [Lottie animations](https://github.com/airbnb/lottie-ios) by simply extending the current repo by the Lottie project and do
-some additional work.  Swift Example:
+some additional work. All credits belong to that amazing project and it's contributors (!). 
+
+An example of this fork:
 
 ```swift
-let lottieContent = 
+OnboardingContentViewController *lottiePage = [OnboardingContentViewController contentWithTitle:@"Lottie calling!"
+                                                                                           body:@"How about using Lottie together with Onboard?"
+                                                                                      animation:@"deep_loading"
+                                                                                     buttonText:@"Try out Lottie"
+                                                                                         action:nil];
 ```
+
+To use the Lottie-based version of this framework without CocoaPods, please build Lottie manually or use `carthage update` to assist you. 
 
 Usage
 =====
