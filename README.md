@@ -23,7 +23,7 @@ some additional work. All credits belong to that amazing project and it's contri
 
 An example of this fork:
 
-```swift
+```objc
 OnboardingContentViewController *lottiePage = [OnboardingContentViewController contentWithTitle:@"Lottie calling!"
                                                                                            body:@"How about using Lottie together with Onboard?"
                                                                                       animation:@"deep_loading"
